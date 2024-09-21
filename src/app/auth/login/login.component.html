@@ -1,0 +1,23 @@
+<div class="container">
+    <h4>Login</h4>
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" [(ngModel)]="credentials.email" name="email" required>
+            <div *ngIf="loginForm.controls['email']?.invalid && loginForm.controls['email']?.touched"
+                class="text-danger">
+                Email is required.
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" [(ngModel)]="credentials.password" name="password"
+                required>
+            <div *ngIf="loginForm.controls['password']?.invalid && loginForm.controls['password']?.touched"
+                class="text-danger">
+                Password is required.
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+    </form>
+</div>
